@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <title>Kalbime hoş geldin sevgilimm</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: linear-gradient(to right, #ffe6e6, #fff5f5);
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background-color: #ff9999;
+      padding: 20px;
+      color: white;
+      font-size: 2em;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px;
+    }
+    .card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      padding: 20px;
+      max-width: 600px;
+      animation: fadeInUp 1s ease; /* animasyon eklendi */
+    }
+    .card img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .card p {
+     line-height: 1.6;
+     text-align: justify;
+    }
+    button {
+     background-color: #ff4d4d;
+     color: white;
+     border: none;
+     padding: 10px 20px;
+     margin: 5px;
+     border-radius: 20px;
+     cursor: pointer;
+     font-size: 1em;
+    }
+     button:hover {
+      background-color: #e60000;
+    }
+    footer {
+      background-color: #ff9999;
+      color: white;
+      padding: 15px;
+      margin-top: 30px;
+    }
+    #countdown {
+  font-size: 1.8em;
+  font-weight: bold;
+  text-align: center;
+  color: #ff3366;
+  text-shadow: 0 0 10px #ff99cc, 0 0 20px #ff66b2, 0 0 30px #ff3399;
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+  </style>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head> 
+<body> <div class="card">
+  <h2>Arka Plan Müziği</h2>
+  <audio id="bgmusic" loop>
+    <source src="senihergordugumde.mp3" type="audio/mpeg">
+    Tarayıcınız müziği desteklemiyor.
+  </audio>
+  <button onclick="document.getElementById('bgmusic').play()">▶ Başlat</button>
+  <button onclick="document.getElementById('bgmusic').pause()">⏸ Durdur</button>
+</div>
+
+ <div class="card">
+  <h2>VEEE SEVGİLİLER GÜNÜMÜZE SON</h2>
+  <p id="countdown"></p>
+</div>
+
+<script>
+  // Hedef tarih (örneğin 14 Şubat 2026, saat 00:00)
+  const targetDate = new Date("Feb 14, 2026 00:00:00").getTime();
+
+  const countdownElement = document.getElementById("countdown");
+
+  const timer = setInterval(function() {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  countdownElement.innerHTML = days + " gün " + hours + " saat "
+    + minutes + " dakika " + seconds + " saniye kaldı 💖";
+
+  // Süre dolunca mesaj göster + konfeti
+  if (distance < 0) {
+    clearInterval(timer);
+    countdownElement.innerHTML = "Teşekkür ederimm herr şeyiimm 🎉💖";
+    confetti({
+      particleCount: 150,
+      spread: 100,
+      origin: { y: 0.6 }
+    });
+  }
+}, 1000);
+
+</script>
+
+<script>
+  // Kullanılacak kalp çeşitleri
+  const hearts = ["💖", "❤️", "💜", "💙", "💚", "🧡", "💛"];
+
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.top = "-20px";
+    heart.style.fontSize = (20 + Math.random() * 30) + "px"; // farklı boyutlar
+
+    // 🔥 Rastgele hız (3–6 saniye arası)
+    const randomDuration = 3 + Math.random() * 3;
+    // 🔥 Rastgele yatay kayma (-50px ile +50px arası)
+    const randomX = (Math.random() - 0.5) * 100;
+
+    heart.style.animation = `fall ${randomDuration}s linear`;
+    heart.style.transform = `translateX(${randomX}px)`;
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), randomDuration * 1000);
+  }
+
+  // Daha sık kalp üretmek için süreyi kısaltıyoruz (örneğin 300ms)
+  setInterval(createHeart, 300);
+</script>
+<script>
+  // Kalpler için kod...
+</script>
+
+
+<style>
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-80px); opacity: 0; }
+}
+</style>
+
+<script>
+  // Rastgele romantik mesajlar
+  const romanticMessages = [
+    "Sen benim en güzel mucizemsinn 💕",
+    "Her şey seninlee; seninn gibii güzell, güzellerr güzelimm 🌹",
+    "Kalbim seninle dahaa bii anlamlıı 💖",
+    "Gülüşünle dünyam aydınlanıyor ✨",
+    "Senin ile yaşadıklarımınn bendekii etkisinii hiçç bir sismometre ölçemezz 🎶"
+  ];
+
+  function showRomanticMessage() {
+    const msg = document.createElement("div");
+    msg.innerHTML = "💖 " + romanticMessages[Math.floor(Math.random() * romanticMessages.length)] + " 💖";
+    msg.style.position = "fixed";
+    msg.style.left = Math.random() * (window.innerWidth - 200) + "px"; 
+    msg.style.top = Math.random() * (window.innerHeight - 100) + "px";
+    msg.style.background = "#ff66b2";
+    msg.style.color = "white";
+    msg.style.padding = "10px 20px";
+    msg.style.borderRadius = "30px";
+    msg.style.fontSize = "1.2em";
+    msg.style.boxShadow = "0 0 15px #ff99cc";
+    msg.style.zIndex = "9999"; 
+    msg.style.animation = "floatUp 4s ease forwards"; // 🔥 yukarı süzülme animasyonu
+
+    document.body.appendChild(msg);
+
+    // 4 saniye sonra otomatik silinsin
+    setTimeout(() => msg.remove(), 6000);
+  }
+
+  // 🔥 Mesajlar daha sık çıksın (örneğin her 5 saniyede bir)
+  setInterval(showRomanticMessage, 5000);
+</script>
+
+<style>
+@keyframes fall {
+  to {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+</style>
+
+  <header>💖 Seni çok seviyorumm ennn sevdiğimmm 💖</header>
+
+  <section>
+    <div class="card">
+      <h2>İlk Buluşmamız</h2>
+      <p>Bebeğim, o gün asla unutulacak bir gün değil… Çünkü “double Özo”nun başlangıcının ilk temelleri işte tam da o gün atıldı. O günün değeri, sadece bir tarih değil; hayatımın paha biçilemez sevdiceğimle daha da yakınlaştığım, kalplerimizin aynı ritimde çarptığını hissettiğim bir dönüm noktası olmasıdır.
+Konuşmalarımız… Ah, konuşmalarımızın her biri ayrı bir hazineydi. Söylediğimiz her kelime, paylaştığımız her cümle, sanki ruhlarımızın birbirine dokunan ince iplikleri gibiydi. O anlarda zaman durdu, dünya sustu, sadece sen ve ben vardık. Her bakışında içimde bir evren açıldı, her sözünde kalbime yeni bir ışık doğdu.
+İyi ki tanımışım seni… İyi ki yollarımız kesişmiş, iyi ki o gün birbirimize daha da yaklaşmışız. Seninle tanışmak, hayatımın en güzel tesadüfü değil; kaderin bana sunduğu en büyük armağan. Seninle olmak, sıradan bir anı bile eşsiz bir hatıraya dönüştürüyor.
+O gün, bizim için sadece bir başlangıç değil; geleceğe uzanan bir köprüydü. Seninle attığım her adımda, içimde büyüyen sevgi daha da kök salıyor. Seninle konuşmak, seninle gülmek, seninle susmak bile paha biçilemez. Çünkü seninle her şey anlamlı, seninle her şey gerçek.
+Sevgilim, sen benim en değerli yol arkadaşım, en güvenilir limanım, en güzel mucizemsin. O günün hatırası, kalbimde sonsuza kadar saklı kalacak. Ve ben her hatırladığımda, aynı heyecanı, aynı sıcaklığı, aynı derin sevgiyi yeniden yaşayacağım.</p>
+      <img src="ozom.jpeg" alt="ozom.">
+      <P> Ben bir kere o güzel gözlerine yenildim oyunlarda kazanmamın hiç bir önemi yok bebeğimm her daimm kazanan sensin.</p> 
+    </div>
+
+    <div class="card">
+      <h2>Sevdiğim Şeyler</h2>
+      <ul style="list-style:none; padding:0;">
+        <li>🌹Güzelliğin… Güzel gözlerin… Gülüşünle dünyamı aydınlatışın… Beraber dinlediğimiz şarkılar, yaptığımız aktiviteler… Hepsini çok seviyorum. Ama sadece bunlar değil; seninle yaşadığım her ayrıntı, her küçük an benim için paha biçilemez bir hazine.
+• 	Seninle sabahları uyanmak, ilk mesajını görmek…
+• 	Birlikte kahve içmek, aynı fincandan mutluluğu paylaşmak…
+• 	Yan yana yürürken ellerimizin birbirini bulması…
+• 	Sessizce oturup sadece birbirimizin varlığını hissetmek…
+• 	Birlikte film izlerken senin gülüşünü duymak, gözlerinde o ışığı görmek…
+• 	Küçük sürprizler yapmak, senin şaşırışını ve sevinişini izlemek…
+• 	Gece uzun uzun konuşmak, hayallerimizi birbirimize anlatmak…
+• 	Senin sesini duymak, bana huzurun en saf halini getirmesi…
+• 	Birlikte fotoğraf çekmek, her karede sevgimizi ölümsüzleştirmek…
+• 	Seninle aynı şarkıya eşlik etmek, kalplerimizin ritmini müziğe katmak…
+• 	Birlikte planlar kurmak, geleceği hayal etmek…
+Seninle olan her şey, sıradan bir anı bile eşsiz bir hatıraya dönüştürüyor. Senin gözlerin bana gökyüzünü hatırlatıyor; gülüşün ise güneşi… Seninle olduğumda dünya daha renkli, daha anlamlı, daha yaşanılır bir yer oluyor.
+Sevgilim, sen benim en güzel mucizemsin. Seninle geçirdiğim her saniye, kalbime yeni bir şiir yazıyor. Ve ben biliyorum ki bu şiir hiç bitmeyecek, çünkü seninle her gün yeni bir mısra ekleniyor.
+ </li> 
+      </ul>
+    </div>
+
+  <div class="card">
+  <h2>BİİÜÜSSÜÜRÜÜÜ BİİSSS</h2>
+  <img id="slideshow" src="foto1.jpg" alt="Slayt"  
+       style="width:100%; border-radius:10px; opacity:1; transition:opacity 1s;">
+</div>
+
+<script>
+  const images = ["ozo1.jpeg", "ozo2.jpeg", "ozo3.jpeg", "ozo4.jpeg", "ozo5.jpeg", 
+                  "ozo6.jpeg", "ozo7.jpeg", "ozo8.jpeg", "ozo9.jpeg"];
+  let index = 0;
+  const slideshow = document.getElementById("slideshow");
+
+  setInterval(() => {
+    slideshow.style.opacity = 0;
+    setTimeout(() => {
+      index = (index + 1) % images.length;
+      slideshow.src = images[index];
+      slideshow.style.opacity = 1;
+    }, 1000);
+  }, 4000);
+</script>
+
+<div class="card">
+  <h2>Kalbimin en güzel yerinden kalbine sevgilim.</h2>
+  <p>Sevgilim… Bugün günlerden 14 Şubat, bizim günümüz.Bu tarih, başkaları için sıradan bir sevgililer günü olabilir ama bizim için çok daha derin, çok daha özel bir anlam taşıyor. Çünkü bu gün, sadece sevgimizi kutladığımız bir gün değil; aynı zamanda kalplerimizin birbirine daha sıkı kenetlendiği, geleceğe dair umutlarımızın daha da büyüdüğü bir gün.
+Seninle bu günü yaşamak, bana hayatın en güzel armağanı gibi geliyor. Senin gözlerinle dünyam aydınlanıyor, gülüşünle içimdeki bütün karanlıklar dağılıyor. Seninle yan yana olduğumda, sıradan bir an bile eşsiz bir hatıraya dönüşüyor. Birlikte dinlediğimiz şarkılar, yaptığımız küçük büyük aktiviteler, paylaştığımız kahkahalar… Hepsi kalbimde birer inci tanesi gibi birikiyor.
+Rabbimden tek dileğim, nice yıllar boyunca bu günü hep beraber kutlamamız. Her yeni 14 Şubat’ta el ele, kalp kalbe, aynı duayı ederek girmemiz. Seninle yaşlanmak, seninle her yılın yeni başlangıcına adım atmak, seninle her günü bayram gibi yaşamak… İşte en büyük hayalim bu.
+Sevgilim, sen benim için sadece bir sevgili değil; aynı zamanda en yakın dostum, en güvenilir sırdaşım, en güzel mucizemsin. Senin varlığın bana her gün yeniden umut veriyor, her gün yeniden sevginin ne kadar büyük bir güç olduğunu hatırlatıyor.
+Bugün bizim günümüz… Ama aslında seninle geçen her gün, benim için bir 14 Şubat. Çünkü seninle olduğum her an, sevgiyi en saf haliyle yaşıyorum. Ve biliyorum ki bu sevgi, yıllar geçse de hiç eksilmeyecek; aksine daha da büyüyerek kalplerimizi saracak.  ... 💕</p>
+</div>
+  </section>
+
+  <footer>© 2026 - Senin için, sevgilim</footer>
+</body>
+</html>
